@@ -6,40 +6,32 @@ import {
 import logo from './logo.svg';
 import './App.css';
 
+import Sidebar from './components/Sidebar/Sidebar'
+import Roller from './components/Tools/Roller/Roller'
+
 class App extends Component {
   render() {
     return (
-    <div className="App">
-        <Sidebar></Sidebar>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
         <BrowserRouter>
-            <div className="container">
-                <Route exact path="/" component={Hello}/>
+            <div className="App">
+                <Sidebar></Sidebar>
+                <header className="App-header">
+                  <img src={logo} className="App-logo" alt="logo" />
+                  <h1 className="App-title">Welcome to React</h1>
+                </header>
+                <Route exact path="/" component={Home}/>
                 <Route path="/sub" component={Sub}/>
+                <Route path="/roll" component={Roller}/>
             </div>
         </BrowserRouter>
-    </div>
     );
   }
 }
 
-class Sidebar extends Component {
-    render () {
-        return (
-            <div className="Sidebar">
-                <a class="btn-floating btn-large waves-effect waves-light blue lighten-2"><i class="material-icons">add</i></a>
-            </div>
-        )
-    }
-}
-
-class Hello extends Component {
+class Home extends Component {
     render() {
         return (
-            "Hello World!"
+            <span>"Hello World!"</span>
         );
     }
 }
@@ -47,7 +39,7 @@ class Hello extends Component {
 class Sub extends Component {
     render() {
         return (
-            "Sub Component"
+            <span>"Sub Component"</span>
         );
     }
 }
